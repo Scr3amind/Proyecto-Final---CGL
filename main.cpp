@@ -1,15 +1,15 @@
-//Semestre 2017 - 2
+//Semestre 2019 - 1
 //************************************************************//
 //************************************************************//
-//************** Alumno (s): *********************************//
-//*************											******//
-//*************											******//
+//************** Cruz Santos Isaac *********************************//
+//*************  Proyecto Final Laboratorio de Computación Gráfica***//
+//*************	 Grupo : 01										******//
 //************************************************************//
 //************************************************************//
 
 #include "texture.h"
 #include "figuras.h"
-#include "Camera.h"
+
 #include "Noise.h"
 #include "KameHouse.h"
 
@@ -18,8 +18,7 @@
 
 #define FPS 60
 
-//NEW//////////////////NEW//////////////////NEW//////////////////NEW////////////////
-static GLuint ciudad_display_list;	//Display List for the Monito
+
 
 /// Perlin Noise Relacionados//
 float dummy = 0.0f;
@@ -64,10 +63,6 @@ bool runningWater = false;
 bool activateWater = false;
 float waterLevel = 0.0f;
 //
-
-CCamera objCamera;	//Create objet Camera
-
-GLfloat g_lookupdown = 0.0f;    // Look Position In The Z-Axis (NEW) 
 
 int font=(int)GLUT_BITMAP_HELVETICA_18;
 
@@ -277,142 +272,8 @@ void mouseButton(int button, int state, int x, int y) {
 	}
 }
 
-//void ciudad ()
-//{
-//
-//		glPushMatrix(); //Camino1
-//			glTranslatef(23.5,0.0,0.0);
-//			glScalef(40,0.1,7);
-//			glDisable(GL_LIGHTING);
-//			fig3.prisma2(text4.GLindex, 0);
-//			glEnable(GL_LIGHTING);
-//		glPopMatrix();
-//
-//		glPushMatrix(); //Camino2
-//			glTranslatef(-23.5,0.0,0.0);
-//			glScalef(40,0.1,7);
-//			glDisable(GL_LIGHTING);
-//			fig3.prisma2(text4.GLindex, 0);
-//			glEnable(GL_LIGHTING);
-//		glPopMatrix();
-//
-//		glPushMatrix(); //Pasto
-//			glTranslatef(0.0,0.0,-4.0);
-//			glScalef(87,0.1,1);
-//			glDisable(GL_LIGHTING);
-//			fig4.prisma2(text5.GLindex, 0);
-//			glEnable(GL_LIGHTING);
-//		glPopMatrix();
-//
-//		glPushMatrix(); //Pasto
-//			glTranslatef(0.0,0.0,4.0);
-//			glScalef(87,0.1,1);
-//			glDisable(GL_LIGHTING);
-//			fig4.prisma2(text5.GLindex, 0);
-//			glEnable(GL_LIGHTING);
-//		glPopMatrix();
-//
-//		glPushMatrix(); //Casa01
-//			glTranslatef(0.0,3.0,7.0);
-//			glRotatef(90,1,0,0);
-//			glRotatef(180,0,0,1);
-//			glScalef(6,5.0,6);
-//			glDisable(GL_LIGHTING);
-//			fig5.prisma2(text6.GLindex, 0);
-//			glEnable(GL_LIGHTING);
-//		glPopMatrix();
-//
-//		glPushMatrix(); //Casa01
-//			glTranslatef(0.0,3.0,-7.0);
-//			glRotatef(90,1,0,0);
-//			//glRotatef(180,0,0,1);
-//			glScalef(6,5.0,6);
-//			glDisable(GL_LIGHTING);
-//			fig5.prisma2(text6.GLindex, 0);
-//			glEnable(GL_LIGHTING);
-//		glPopMatrix();
-//}
 
-//void arbol()
-//{
-//	glPushMatrix();
-//					glDisable(GL_LIGHTING);
-//					glEnable( GL_ALPHA_TEST );
-//					//glDisable(GL_DEPTH_TEST);   // Turn Depth Testing Off
-//					glAlphaFunc( GL_GREATER, 0.1 );
-//					//glEnable(GL_BLEND);     // Turn Blending On
-//					//glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
-//					glBindTexture(GL_TEXTURE_2D, tree.GLindex);
-//					glBegin(GL_QUADS); //plano
-//						glColor3f(1.0, 1.0, 1.0);
-//						glNormal3f( 0.0f, 0.0f, 1.0f);
-//						glTexCoord2f(0.0f, 0.0f); glVertex3f(-10.0, 0.0, 0.0);
-//						glTexCoord2f(1.0f, 0.0f); glVertex3f(10.0, 0.0, 0.0);
-//						glTexCoord2f(1.0f, 1.0f); glVertex3f(10.0, 20.0, 0.0);
-//						glTexCoord2f(0.0f, 1.0f); glVertex3f(-10.0, 20.0, 0.0);
-//					glEnd();
-//			glPopMatrix();
-//
-//			glPushMatrix();
-//					glRotatef(45, 0, 1, 0);
-//					glBegin(GL_QUADS); //plano
-//						glColor3f(1.0, 1.0, 1.0);
-//						glNormal3f( 0.0f, 0.0f, 1.0f);
-//						glTexCoord2f(0.0f, 0.0f); glVertex3f(-10.0, 0.0, 0.0);
-//						glTexCoord2f(1.0f, 0.0f); glVertex3f(10.0, 0.0, 0.0);
-//						glTexCoord2f(1.0f, 1.0f); glVertex3f(10.0, 20.0, 0.0);
-//						glTexCoord2f(0.0f, 1.0f); glVertex3f(-10.0, 20.0, 0.0);
-//					glEnd();
-//			glPopMatrix();
-//
-//			glPushMatrix();
-//					glRotatef(-45, 0, 1, 0);
-//					glBegin(GL_QUADS); //plano
-//						glColor3f(1.0, 1.0, 1.0);
-//						glNormal3f( 0.0f, 0.0f, 1.0f);
-//						glTexCoord2f(0.0f, 0.0f); glVertex3f(-10.0, 0.0, 0.0);
-//						glTexCoord2f(1.0f, 0.0f); glVertex3f(10.0, 0.0, 0.0);
-//						glTexCoord2f(1.0f, 1.0f); glVertex3f(10.0, 20.0, 0.0);
-//						glTexCoord2f(0.0f, 1.0f); glVertex3f(-10.0, 20.0, 0.0);
-//					glEnd();
-//			glPopMatrix();
-//
-//			glPushMatrix();
-//					glRotatef(90, 0, 1, 0);
-//					glBegin(GL_QUADS); //plano
-//						glColor3f(1.0, 1.0, 1.0);
-//						glNormal3f( 0.0f, 0.0f, 1.0f);
-//						glTexCoord2f(0.0f, 0.0f); glVertex3f(-10.0, 0.0, 0.0);
-//						glTexCoord2f(1.0f, 0.0f); glVertex3f(10.0, 0.0, 0.0);
-//						glTexCoord2f(1.0f, 1.0f); glVertex3f(10.0, 20.0, 0.0);
-//						glTexCoord2f(0.0f, 1.0f); glVertex3f(-10.0, 20.0, 0.0);
-//					glEnd();
-//					glDisable( GL_ALPHA_TEST );
-//					//glDisable(GL_BLEND);        // Turn Blending Off
-//					//glEnable(GL_DEPTH_TEST);    // Turn Depth Testing On
-//					glEnable(GL_LIGHTING);
-//				
-//			glPopMatrix();
-//}
 
-GLuint createDL() 
-{
-	GLuint ciudadDL;
-	//GLuint cieloDL;
-
-	// Create the id for the list
-	ciudadDL = glGenLists(1);
-	// start list
-	glNewList(ciudadDL,GL_COMPILE);
-	// call the function that contains 
-	// the rendering commands
-		/*ciudad();*/
-		//monito();
-	// endList
-	glEndList();
-
-	return(ciudadDL);
-}
 			
 void InitGL ( GLvoid )     // Inicializamos parametros
 {
@@ -446,9 +307,6 @@ void InitGL ( GLvoid )     // Inicializamos parametros
 	text1.BuildGLTexture();
 	text1.ReleaseImage();
 
-	agua.LoadBMP("agua.bmp");
-	agua.BuildGLTexture();
-	agua.ReleaseImage();
 
 	muebleTV_text.LoadBMP("Textures/MuebleTV.bmp");
 	muebleTV_text.BuildGLTexture();
@@ -619,12 +477,9 @@ void InitGL ( GLvoid )     // Inicializamos parametros
 	agua_text.BuildGLTexture();
 	agua_text.ReleaseImage();
 
-	//END NEW//////////////////////////////
 
-	objCamera.Position_Camera(0,2.5f,3, 0,2.5f,0, 0, 1, 0);
 
-	//NEW Crear una lista de dibujo
-	ciudad_display_list = createDL();
+	
 
 }
 
@@ -644,24 +499,40 @@ void pintaTexto(float x, float y, float z, void *font,char *string)
 
 
 
-void pointNise(int size) {
+void waves(int size) {
 
 	glPointSize(5.0f);
 	float noise;
+	GLfloat vertices[4096][3];
+	
 
-	glBegin(GL_POINTS);
 	
 	for (int x = 0; x < size; x++) {
 		for (int y = 0; y < size; y++) {
 
 			noise = perlin2d(x + dummy, y + (dummy*0.5), 0.1, 4)*ampNoise;
-			glColor3f(noise, 1-noise,1-noise);
-			glVertex3f(x*.05, noise, y*.05);
+			
+			
+			vertices[y+(x*size)][0] = x ;
+			vertices[(y + (x * size))][1] = noise;
+			vertices[(y + (x * size))][2] = y;
 			
 
 
 		}
 	}
+	glEnd();
+	glColor3f(0, 0, 1);
+
+	glBegin(GL_TRIANGLE_STRIP);
+	for (int v = 0; v < (size*size)-size; v+=2) {
+		glVertex3fv(vertices[v]);
+		glVertex3fv(vertices[v+size]);
+		glVertex3fv(vertices[v + 1]);
+		glVertex3fv(vertices[v + size+1]);
+	}
+
+
 	glColor3f(1, 1, 1);
 	glEnd();
 
@@ -699,7 +570,7 @@ void display ( void )   // Creamos la funcion donde se dibuja
 	
 		
 	glPushMatrix();
-		glRotatef(g_lookupdown,1.0f,0,0);
+		
 
 		/*gluLookAt(	objCamera.mPos.x,  objCamera.mPos.y,  objCamera.mPos.z,	
 					objCamera.mView.x, objCamera.mView.y, objCamera.mView.z,	
@@ -722,9 +593,9 @@ void display ( void )   // Creamos la funcion donde se dibuja
 			glPopMatrix();
 
 			glPushMatrix();
-				glTranslatef(0, -0.5, 0);
+				glTranslatef(-25, -1.5, -25);
 
-				pointNise(128);
+				waves(64);
 
 			
 
@@ -913,79 +784,16 @@ void reshape ( int width , int height )   // Creamos funcion Reshape
 	glLoadIdentity();
 }
 
-void keyboard ( unsigned char key, int x, int y )  // Create Keyboard Function
-{
-	switch ( key ) {
 
-		case 'w':   //Movimientos de camara
-		case 'W':
-			objCamera.Move_Camera( CAMERASPEED+0.2 );
-			break;
 
-		case 's':
-		case 'S':
-			objCamera.Move_Camera(-(CAMERASPEED+0.2));
-			break;
 
-		case 'a':
-		case 'A':
-			objCamera.Strafe_Camera(-(CAMERASPEED+0.4));
-			break;
-
-		case 'd':
-		case 'D':
-			objCamera.Strafe_Camera( CAMERASPEED+0.4 );
-			break;
-
-		case 27:        // Cuando Esc es presionado...
-			exit ( 0 );   // Salimos del programa
-			break;        
-		default:        // Cualquier otra
-			break;
-  }
-
-  glutPostRedisplay();
-}
-
-void arrow_keys ( int a_keys, int x, int y )  // Funcion para manejo de teclas especiales (arrow keys)
-{
-  switch ( a_keys ) {
-	case GLUT_KEY_PAGE_UP:
-		objCamera.UpDown_Camera(CAMERASPEED);
-		break;
-
-	case GLUT_KEY_PAGE_DOWN:
-		objCamera.UpDown_Camera(-CAMERASPEED);
-		break;
-
-    case GLUT_KEY_UP:     // Presionamos tecla ARRIBA...
-		g_lookupdown -= 1.0f;
-		break;
-
-    case GLUT_KEY_DOWN:               // Presionamos tecla ABAJO...
-		g_lookupdown += 1.0f;
-		break;
-
-	case GLUT_KEY_LEFT:
-		objCamera.Rotate_View(-CAMERASPEED);
-		break;
-
-	case GLUT_KEY_RIGHT:
-		objCamera.Rotate_View( CAMERASPEED);
-		break;
-
-    default:
-		break;
-  }
-  glutPostRedisplay();
-}
 
 
 
 int main ( int argc, char** argv )   // Main Function
 {
-  //PlaySound(TEXT("Drum.wav"), NULL, SND_ASYNC | SND_FILENAME | SND_LOOP);
-	printf("Hola");
+  PlaySound(TEXT("DragonBall.wav"), NULL, SND_ASYNC | SND_FILENAME | SND_LOOP);
+	
 	
   glutInit            (&argc, argv); // Inicializamos OpenGL
   glutInitDisplayMode (GLUT_RGB | GLUT_DOUBLE | GLUT_DEPTH); // Display Mode (Clores RGB y alpha | Buffer Doble )

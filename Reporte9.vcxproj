@@ -125,7 +125,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="figuras.cpp" />
     <ClCompile Include="KameHouse.cpp" />
     <ClCompile Include="main.cpp" />
@@ -133,7 +132,6 @@
     <ClCompile Include="texture.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Camera.h" />
     <ClInclude Include="figuras.h" />
     <ClInclude Include="KameHouse.h" />
     <ClInclude Include="Noise.h" />
