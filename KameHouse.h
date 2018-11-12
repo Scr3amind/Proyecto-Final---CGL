@@ -1,0 +1,37 @@
+#pragma once
+#include "Main.h"
+void sillon(GLuint text);
+void alfombra(GLuint text);
+void mesaCentro(GLuint text);
+void muebleTV(GLuint text);
+void mesa(GLuint text);
+void refri(GLuint text);
+void mueblesito(GLuint text);
+void lampara(GLuint text);
+void muebleCocina(GLuint text);
+void estufa(GLuint text);
+void lavamanos(GLuint text);
+void cajonesSup(GLuint text);
+void trapecio(GLuint text);
+void paredInterna(GLuint text);
+void llaves(GLuint text);
+void silla(GLuint text);
+void tele(GLuint text);
+void pantalla(GLuint text);
+void casa(GLuint text);
+void techito(GLuint text);
+void escalones(GLuint text);
+void ventanaFrente(GLuint text);
+void ventana(GLuint text);
+void puerta(GLuint text);
+void isla(GLuint text);
+void rocas(GLuint text);
+void palmera1(GLuint text);
+void palmera2(GLuint text);
+void palmera3(GLuint text);
+void tapete(GLuint text);
+void casita(GLuint text);
+void techo(GLuint text);
+void techoIn(GLuint text);
+void water(GLuint text, float offset);
+void water_plane(GLuint text, float offset);
