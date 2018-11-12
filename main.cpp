@@ -522,7 +522,7 @@ void waves(int size) {
 		}
 	}
 	glEnd();
-	glColor3f(0, 0, 1);
+	glColor3ub(0, 153, 204);
 
 	glBegin(GL_TRIANGLE_STRIP);
 	for (int v = 0; v < (size*size)-size; v+=2) {
@@ -588,7 +588,7 @@ void display ( void )   // Creamos la funcion donde se dibuja
 			glPushMatrix(); //Creamos cielo
 				glDisable(GL_LIGHTING);
 				glTranslatef(0,20,0);
-				fig1.skybox(130.0, 130.0, 130.0,text1.GLindex);
+				fig1.skybox(130.0, 130.0, 130.0,text1.GLindex,dummy*0.01);
 				glEnable(GL_LIGHTING);
 			glPopMatrix();
 

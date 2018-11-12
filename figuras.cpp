@@ -5,7 +5,7 @@ const double PI = 3.1415926535897;
 float text_der = 1.0;
 float text_izq = 0.0;
 
-void CFiguras::skybox(float largo, float altura, float profundidad, GLuint text)  //Funcion creacion cielo
+void CFiguras::skybox(float largo, float altura, float profundidad, GLuint text,float offset)  //Funcion creacion cielo
 {
 
 	GLfloat vertice [8][3] = {
@@ -22,34 +22,34 @@ void CFiguras::skybox(float largo, float altura, float profundidad, GLuint text)
 		glBindTexture(GL_TEXTURE_2D, text);   // choose the texture to use.
 		glBegin(GL_POLYGON);	//Front
 			glNormal3f( 0.0f, 0.0f, -1.0f);
-			glTexCoord2f(0.0f, 0.0f); glVertex3fv(vertice[0]);
-			glTexCoord2f(0.0f, 1.0f); glVertex3fv(vertice[4]);
-			glTexCoord2f(1.0f, 1.0f); glVertex3fv(vertice[7]);
-			glTexCoord2f(1.0f, 0.0f); glVertex3fv(vertice[1]);
+			glTexCoord2f(0.0f+offset, 0.0f); glVertex3fv(vertice[0]);
+			glTexCoord2f(0.0f + offset, 1.0f); glVertex3fv(vertice[4]);
+			glTexCoord2f(1.0f + offset, 1.0f); glVertex3fv(vertice[7]);
+			glTexCoord2f(1.0f + offset, 0.0f); glVertex3fv(vertice[1]);
 		glEnd();
 
 		glBegin(GL_POLYGON);	//Right
-			glNormal3f( -1.0f, 0.0f, 0.0f);
-			glTexCoord2f(0.0f, 0.0f); glVertex3fv(vertice[0]);
-			glTexCoord2f(1.0f, 0.0f); glVertex3fv(vertice[3]);
-			glTexCoord2f(1.0f, 1.0f); glVertex3fv(vertice[5]);
-			glTexCoord2f(0.0f, 1.0f); glVertex3fv(vertice[4]);
+			glNormal3f( -1.0f + offset, 0.0f, 0.0f);
+			glTexCoord2f(0.0f + offset, 0.0f); glVertex3fv(vertice[0]);
+			glTexCoord2f(1.0f + offset, 0.0f); glVertex3fv(vertice[3]);
+			glTexCoord2f(1.0f + offset, 1.0f); glVertex3fv(vertice[5]);
+			glTexCoord2f(0.0f + offset, 1.0f); glVertex3fv(vertice[4]);
 		glEnd();
 
 		glBegin(GL_POLYGON);	//Back
-			glNormal3f( 0.0f, 0.0f,1.0f);
-			glTexCoord2f(0.0f, 1.0f); glVertex3fv(vertice[6]);
-			glTexCoord2f(1.0f, 1.0f); glVertex3fv(vertice[5]);
-			glTexCoord2f(1.0f, 0.0f); glVertex3fv(vertice[3]);
-			glTexCoord2f(0.0f, 0.0f); glVertex3fv(vertice[2]);
+			glNormal3f( 0.0f + offset, 0.0f,1.0f);
+			glTexCoord2f(0.0f + offset, 1.0f); glVertex3fv(vertice[6]);
+			glTexCoord2f(1.0f + offset, 1.0f); glVertex3fv(vertice[5]);
+			glTexCoord2f(1.0f + offset, 0.0f); glVertex3fv(vertice[3]);
+			glTexCoord2f(0.0f + offset, 0.0f); glVertex3fv(vertice[2]);
 		glEnd();
 
 		glBegin(GL_POLYGON);  //Left
 			glNormal3f(1.0f, 0.0f, 0.0f);
-			glTexCoord2f(1.0f, 0.0f); glVertex3fv(vertice[1]);
-			glTexCoord2f(1.0f, 1.0f); glVertex3fv(vertice[7]);
-			glTexCoord2f(0.0f, 1.0f); glVertex3fv(vertice[6]);
-			glTexCoord2f(0.0f, 0.0f); glVertex3fv(vertice[2]);
+			glTexCoord2f(1.0f + offset, 0.0f); glVertex3fv(vertice[1]);
+			glTexCoord2f(1.0f + offset, 1.0f); glVertex3fv(vertice[7]);
+			glTexCoord2f(0.0f + offset, 1.0f); glVertex3fv(vertice[6]);
+			glTexCoord2f(0.0f + offset, 0.0f); glVertex3fv(vertice[2]);
 		glEnd();
 
 		glBegin(GL_POLYGON);  //Bottom
